@@ -84,17 +84,19 @@ void ChangePalettePeriodically()
 
 	if (lastSecond != secondHand) {
 		lastSecond = secondHand;
-		if (secondHand == 0) { currentPalette = RainbowColors_p;         currentBlending = LINEARBLEND; }
-		if (secondHand == 10) { currentPalette = RainbowStripeColors_p;   currentBlending = NOBLEND; }
-		if (secondHand == 15) { currentPalette = RainbowStripeColors_p;   currentBlending = LINEARBLEND; }
-		if (secondHand == 20) { SetupPurpleAndGreenPalette();             currentBlending = LINEARBLEND; }
-		if (secondHand == 25) { SetupTotallyRandomPalette();              currentBlending = LINEARBLEND; }
-		if (secondHand == 30) { SetupBlackAndWhiteStripedPalette();       currentBlending = NOBLEND; }
-		if (secondHand == 35) { SetupBlackAndWhiteStripedPalette();       currentBlending = LINEARBLEND; }
-		if (secondHand == 40) { currentPalette = CloudColors_p;           currentBlending = LINEARBLEND; }
-		if (secondHand == 45) { currentPalette = PartyColors_p;           currentBlending = LINEARBLEND; }
-		if (secondHand == 50) { currentPalette = myRedWhiteBluePalette_p; currentBlending = NOBLEND; }
-		if (secondHand == 55) { currentPalette = myRedWhiteBluePalette_p; currentBlending = LINEARBLEND; }
+		Test();
+		currentBlending = NOBLEND;
+		//        if( secondHand ==  0)  {currentPalette = myRedWhiteBluePalette_p;         currentBlending = LINEARBLEND; }
+		//        if( secondHand == 10)  { currentPalette = RainbowStripeColors_p;   currentBlending = NOBLEND;  }
+		//        if( secondHand == 15)  { currentPalette = RainbowStripeColors_p;   currentBlending = LINEARBLEND; }
+		//        if( secondHand == 20)  { SetupPurpleAndGreenPalette();             currentBlending = LINEARBLEND; }
+		//        if( secondHand == 25)  { SetupTotallyRandomPalette();              currentBlending = LINEARBLEND; }
+		//        if( secondHand == 30)  { SetupBlackAndWhiteStripedPalette();       currentBlending = NOBLEND; }
+		//        if( secondHand == 35)  { SetupBlackAndWhiteStripedPalette();       currentBlending = LINEARBLEND; }
+		//        if( secondHand == 40)  { currentPalette = CloudColors_p;           currentBlending = LINEARBLEND; }
+		//        if( secondHand == 45)  { currentPalette = PartyColors_p;           currentBlending = LINEARBLEND; }
+		//        if( secondHand == 50)  { currentPalette = myRedWhiteBluePalette_p; currentBlending = NOBLEND;  }
+		//        if( secondHand == 55)  { currentPalette = myRedWhiteBluePalette_p; currentBlending = LINEARBLEND; }
 	}
 }
 
@@ -126,7 +128,7 @@ void SetupBlackAndWhiteStripedPalette()
 void SetupPurpleAndGreenPalette()
 {
 	CRGB purple = CHSV(HUE_PURPLE, 255, 255);
-	CRGB green = CHSV(HUE_GREEN, 255, 255);
+	CRGB green = CHSV(64, 255, 255);
 	CRGB black = CRGB::Black;
 
 	currentPalette = CRGBPalette16(
@@ -136,6 +138,17 @@ void SetupPurpleAndGreenPalette()
 		purple, purple, black, black);
 }
 
+void Test() {
+	CRGB red = CHSV(96, 255, 255);
+	CRGB gold = CHSV(75, 255, 255);
+	CRGB black = CRGB::Black;
+
+	currentPalette = CRGBPalette16(
+		red, red, red, red,
+		gold, gold, gold, gold,
+		gold, gold, gold, gold,
+		red, red, red, red);
+}
 
 // This example shows how to set up a static color palette
 // which is stored in PROGMEM (flash), which is almost always more
