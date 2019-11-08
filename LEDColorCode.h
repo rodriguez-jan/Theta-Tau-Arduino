@@ -9,6 +9,8 @@ CRGB leds[NUM_LEDS];
 
 #define UPDATES_PER_SECOND 100
 
+//Test Comment
+
 // This example shows several ways to set up and use 'palettes' of colors
 // with FastLED.
 //
